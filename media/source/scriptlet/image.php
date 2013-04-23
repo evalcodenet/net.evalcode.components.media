@@ -9,7 +9,7 @@
    *
    * @author evalcode.net
    */
-  class Media_Scriptlet_Image extends Scriptlet
+  class Media_Scriptlet_Image extends Http_Scriptlet
   {
     // OVERRIDES/IMPLEMENTS
     public function post()

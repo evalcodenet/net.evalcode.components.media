@@ -9,7 +9,7 @@
    *
    * @author evalcode.net
    */
-  class Media_Scriptlet_Upload extends Scriptlet
+  class Media_Scriptlet_Upload extends Http_Scriptlet
   {
     // OVERRIDES/IMPLEMENTS
     public function post($store_, $category_=null)
