@@ -49,13 +49,13 @@ namespace Components;
      */
     public static function forPath($path_)
     {
-      if($serialized=Runtime::cache()->get('components/media/store/'.md5($path_)))
+      if($serialized=Cache::get('components/media/store/'.md5($path_)))
         return @unserialize($serialized);
 
       $instance=new self($path_);
       $instance->load();
 
-      Runtime::cache()->set('components/media/store/'.md5($path_), serialize($instance));
+      Cache::set('components/media/store/'.md5($path_), serialize($instance));
 
       return $instance;
     }
@@ -79,7 +79,7 @@ namespace Components;
 
       $instance->load();
 
-      Runtime::cache()->set('components/media/store/'.md5($path_), serialize($instance));
+      Cache::set('components/media/store/'.md5($path_), serialize($instance));
 
       return $instance;
     }
