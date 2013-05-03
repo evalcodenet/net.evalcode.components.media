@@ -12,7 +12,7 @@ namespace Components;
    *
    * @author evalcode.net
    */
-  interface Media_Storage
+  interface Media_Storage extends Object
   {
     // ACCESSORS/MUTATORS
     /**

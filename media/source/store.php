@@ -14,7 +14,7 @@ namespace Components;
    *
    * TODO Use Io_File, Io_Image ..
    */
-  class Media_Store
+  class Media_Store implements Object /* TODO (CSH) Serializable_Php, Serializable_Json */
   {
     // PREDEFINED PROPERTIES
     const NAME_MANIFEST='.manifest';
@@ -34,7 +34,7 @@ namespace Components;
 
 
     // CONSTRUCTION
-    private function __construct($path_)
+    public function __construct($path_)
     {
       $this->path=$path_;
     }
@@ -45,7 +45,7 @@ namespace Components;
     /**
      * @param string $path_
      *
-     * @return Media_Store
+     * @return \Components\Media_Store
      */
     public static function forPath($path_)
     {
@@ -65,7 +65,7 @@ namespace Components;
      * @param string $storage_
      * @param array|string $schema_
      *
-     * @return Media_Store
+     * @return \Components\Media_Store
      */
     public static function create($path_, $storage_, array $schema_)
     {
@@ -102,7 +102,7 @@ namespace Components;
      * @param string $id_
      * @param string $category_
      *
-     * @return Io_File
+     * @return \Components\Io_File
      */
     public function find($id_, $category_=null)
     {
@@ -114,7 +114,7 @@ namespace Components;
      * @param string $id_
      * @param string $category_
      *
-     * @return Io_File
+     * @return \Components\Io_File
      */
     public function findByScheme($scheme_, $id_, $category_=null)
     {
@@ -143,11 +143,11 @@ namespace Components;
     }
 
     /**
-     * @param Io_File $file_
+     * @param \Components\Io_File $file_
      * @param string $id_
      * @param string $category_
      *
-     * @return Io_File
+     * @return \Components\Io_File
      */
     public function add(Io_File $file_, $id_, $category_=null)
     {
@@ -175,11 +175,19 @@ namespace Components;
       return $this->m_storage->drop($category_);
     }
 
+    /**
+     * @return array|\Components\Media_Filter
+     */
     public function getSchema()
     {
       return $this->m_schema;
     }
 
+    /**
+     * @param string $name_
+     *
+     * @return \Components\Media_Filter
+     */
     public function getScheme($name_)
     {
       if(false===isset($this->m_schema[$name_]))
@@ -189,7 +197,7 @@ namespace Components;
     }
 
     /**
-     * @return Media_Storage
+     * @return \Components\Media_Storage
      */
     public function getStorage()
     {
@@ -215,6 +223,40 @@ namespace Components;
     public function __wakeup()
     {
       $this->load();
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see Components.Object::hashCode()
+     */
+    public function hashCode()
+    {
+      return string_hash($this->path);
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see Components.Object::equals()
+     */
+    public function equals($object_)
+    {
+      if($object_ instanceof self)
+        return String::equal($this->path, $object_->path);
+
+      return false;
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see Components.Object::__toString()
+     */
+    public function __toString()
+    {
+      return sprintf('%s@%s{path: %s}',
+        __CLASS__,
+        $this->hashCode(),
+        $this->path
+      );
     }
     //--------------------------------------------------------------------------
 

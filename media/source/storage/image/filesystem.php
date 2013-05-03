@@ -16,7 +16,7 @@ namespace Components;
   {
     // PROPERTIES
     /**
-     * @var Media_Store
+     * @var \Components\Media_Store
      */
     public $store;
     //--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ namespace Components;
     // OVERRIDES/IMPLEMENTS
     /**
      * (non-PHPdoc)
-     * @see Media_Storage::init()
+     * @see Components.Media_Storage::init()
      */
     public function init(Media_Store $store_)
     {
@@ -34,7 +34,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Media_Storage::uri()
+     * @see Components.Media_Storage::uri()
      */
     public function uri($id_, $category_=null)
     {
@@ -43,19 +43,20 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Media_Storage::uriByScheme()
+     * @see Components.Media_Storage::uriByScheme()
      */
     public function uriByScheme($scheme_, $id_, $category_=null)
     {
       if(@is_file(Environment::pathResource("{$this->store->path}/{$scheme_}/{$category_}/{$id_}")))
         return "{$this->store->uri}/{$scheme_}/{$category_}/{$id_}";
 
+      // TODO (CSH) Http_Router
       return sprintf('/components/media/image/%1$s%2$s', String::urlEncodeBase64(serialize(array($this->store->path, $id_, $category_, $scheme_))), substr($id_, strrpos($id_, '.')));
     }
 
     /**
      * (non-PHPdoc)
-     * @see Media_Storage::find()
+     * @see Components.Media_Storage::find()
      */
     public function find($id_, $category_=null)
     {
@@ -64,7 +65,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Media_Storage::findByScheme()
+     * @see Components.Media_Storage::findByScheme()
      */
     public function findByScheme($scheme_, $id_, $category_=null)
     {
@@ -73,7 +74,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Media_Storage::create()
+     * @see Components.Media_Storage::create()
      */
     public function add(Io_File $file_, $id_, $category_=null)
     {
@@ -85,7 +86,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Media_Storage::addByScheme()
+     * @see Components.Media_Storage::addByScheme()
      */
     public function addByScheme($scheme_, Io_File $file_, $id_, $category_=null)
     {
@@ -94,7 +95,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Media_Storage::createByScheme()
+     * @see Components.Media_Storage::createByScheme()
      */
     public function createByScheme($scheme_, $data_, $id_, $category_=null)
     {
@@ -106,7 +107,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Media_Storage::delete()
+     * @see Components.Media_Storage::delete()
      */
     public function remove($id_, $category_=null)
     {
@@ -118,7 +119,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Media_Storage::drop()
+     * @see Components.Media_Storage::drop()
      */
     public function drop($category_)
     {
@@ -130,7 +131,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Media_Storage::copyCategory()
+     * @see Components.Media_Storage::copyCategory()
      */
     public function copyCategory($categorySource_, $categoryTarget_)
     {

@@ -12,7 +12,7 @@ namespace Components;
    *
    * @author evalcode.net
    */
-  interface Media_Filter
+  interface Media_Filter extends Object
   {
     // ACCESSORS/MUTATORS
     /**
