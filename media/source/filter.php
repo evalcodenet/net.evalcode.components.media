@@ -14,7 +14,7 @@ namespace Components;
    */
   interface Media_Filter extends Object
   {
-    // ACCESSORS/MUTATORS
+    // ACCESSORS
     /**
      * @param string $data_
      * @param array $args_

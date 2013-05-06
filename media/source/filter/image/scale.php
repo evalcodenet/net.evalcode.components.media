@@ -14,10 +14,10 @@ namespace Components;
    */
   class Media_Filter_Image_Scale implements Media_Filter
   {
-    // OVERRIDES/IMPLEMENTS
+    // OVERRIDES
     /**
      * (non-PHPdoc)
-     * @see Media_Filter::filter()
+     * @see Components.Media_Filter::filter()
      */
     public function filter($data_, array $args_=array())
     {

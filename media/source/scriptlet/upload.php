@@ -14,7 +14,7 @@ namespace Components;
    */
   class Media_Scriptlet_Upload extends Http_Scriptlet
   {
-    // OVERRIDES/IMPLEMENTS
+    // OVERRIDES
     public function post($store_, $category_=null)
     {
       if(1>count($_FILES))

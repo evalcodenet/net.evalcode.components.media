@@ -86,7 +86,7 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // ACCESSORS/MUTATORS
+    // ACCESSORS
     /**
      * @param string $id_
      * @param string $category_
@@ -206,7 +206,7 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // OVERRIDES/IMPLEMENTS
+    // OVERRIDES
     public function __call($name_, array $args_=array())
     {
       if(false===isset($this->m_schema[$name_]))

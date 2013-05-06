@@ -14,7 +14,7 @@ namespace Components;
    */
   class Media_Scriptlet_Image extends Http_Scriptlet
   {
-    // OVERRIDES/IMPLEMENTS
+    // OVERRIDES
     public function post()
     {
       $chunks=explode('/', $_SERVER['REQUEST_URI']);

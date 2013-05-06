@@ -14,7 +14,7 @@ namespace Components;
    */
   class Media_Filter_Image_Compress implements Media_Filter
   {
-    // OVERRIDES/IMPLEMENTS
+    // OVERRIDES
     /**
      * (non-PHPdoc)
      * @see Media_Filter::filter()
