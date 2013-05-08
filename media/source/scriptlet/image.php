@@ -15,10 +15,10 @@ namespace Components;
   class Media_Scriptlet_Image extends Http_Scriptlet
   {
     // OVERRIDES
-    public function post()
+    public static function dispatch(Http_Scriptlet_Context $context_, Uri $uri_)
     {
-      $chunks=explode('/', $_SERVER['REQUEST_URI']);
-      $base64=end($chunks);
+      $params=$uri_->getPathParams();
+      $base64=end($params);
 
       $info=unserialize(String::urlDecodeBase64($base64));
 
@@ -31,13 +31,7 @@ namespace Components;
       $file=$store->findByScheme($scheme, $id, $category);
 
       header('Content-Length: '.$file->getSize()->bytes());
-
-      return $file->getContent();
-    }
-
-    public function get()
-    {
-      return $this->post();
+      readfile((string)$file);
     }
     //--------------------------------------------------------------------------
   }

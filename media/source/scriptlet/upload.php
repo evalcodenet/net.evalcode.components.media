@@ -15,26 +15,27 @@ namespace Components;
   class Media_Scriptlet_Upload extends Http_Scriptlet
   {
     // OVERRIDES
-    public function post($store_, $category_=null)
+    public static function dispatch(Http_Scriptlet_Context $context_, Uri $uri_)
     {
       if(1>count($_FILES))
         return;
+
+      $params=$uri_->getPathParams();
+
+      $storeName=array_shift($params);
+      $categoryName=array_shift($params);
 
       $fileInfo=reset($_FILES);
       $fileTmp=Io::tmpFile();
       $fileName=Io::sanitizeFileName($fileInfo['name']);
 
-      @move_uploaded_file($fileInfo['tmp_name'], $fileTmp);
+      move_uploaded_file($fileInfo['tmp_name'], $fileTmp);
 
-      $store=Media::store($store_);
-      $store->add($fileTmp, $fileName, $category_);
+      $store=Media::store($storeName);
+      $store->add($fileTmp, $fileName, $categoryName);
 
-      echo $store->uri($fileName, $category_);
-    }
-
-    public function get($store_, $category_=null)
-    {
-      return $this->post($store_, $category_);
+      // TODO JSON
+      echo $store->uri($fileName, $categoryName);
     }
     //--------------------------------------------------------------------------
   }
