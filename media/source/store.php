@@ -45,7 +45,7 @@ namespace Components;
     /**
      * @param string $path_
      *
-     * @return \Components\Media_Store
+     * @return Components\Media_Store
      */
     public static function forPath($path_)
     {
@@ -65,7 +65,7 @@ namespace Components;
      * @param string $storage_
      * @param array|string $schema_
      *
-     * @return \Components\Media_Store
+     * @return Components\Media_Store
      */
     public static function create($path_, $storage_, array $schema_)
     {
@@ -102,7 +102,7 @@ namespace Components;
      * @param string $id_
      * @param string $category_
      *
-     * @return \Components\Io_File
+     * @return Components\Io_File
      */
     public function find($id_, $category_=null)
     {
@@ -114,7 +114,7 @@ namespace Components;
      * @param string $id_
      * @param string $category_
      *
-     * @return \Components\Io_File
+     * @return Components\Io_File
      */
     public function findByScheme($scheme_, $id_, $category_=null)
     {
@@ -143,11 +143,11 @@ namespace Components;
     }
 
     /**
-     * @param \Components\Io_File $file_
+     * @param Components\Io_File $file_
      * @param string $id_
      * @param string $category_
      *
-     * @return \Components\Io_File
+     * @return Components\Io_File
      */
     public function add(Io_File $file_, $id_, $category_=null)
     {
@@ -176,7 +176,7 @@ namespace Components;
     }
 
     /**
-     * @return array|\Components\Media_Filter
+     * @return array|Components\Media_Filter
      */
     public function getSchema()
     {
@@ -186,7 +186,7 @@ namespace Components;
     /**
      * @param string $name_
      *
-     * @return \Components\Media_Filter
+     * @return Components\Media_Filter
      */
     public function getScheme($name_)
     {
@@ -197,7 +197,7 @@ namespace Components;
     }
 
     /**
-     * @return \Components\Media_Storage
+     * @return Components\Media_Storage
      */
     public function getStorage()
     {

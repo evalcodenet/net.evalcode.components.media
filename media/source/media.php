@@ -18,7 +18,7 @@ namespace Components;
     /**
      * @param string $path_
      *
-     * @return \Components\Media_Store
+     * @return Components\Media_Store
      */
     public static function store($path_)
     {
@@ -45,7 +45,7 @@ namespace Components;
      * @param string $categoryName_
      * @param string $fileName_
      *
-     * @return \Components\Media_File
+     * @return Components\Media_File
      */
     public static function file($storePath_, $fileName_)
     {

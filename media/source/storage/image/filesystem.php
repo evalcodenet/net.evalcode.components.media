@@ -16,7 +16,7 @@ namespace Components;
   {
     // PROPERTIES
     /**
-     * @var \Components\Media_Store
+     * @var Components\Media_Store
      */
     public $store;
     //--------------------------------------------------------------------------

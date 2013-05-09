@@ -18,7 +18,7 @@ namespace Components;
     /**
      * Initialize storage engine per request if necessary.
      *
-     * @param \Components\Media_Store $store_
+     * @param Components\Media_Store $store_
      */
     function init(Media_Store $store_);
 
@@ -49,7 +49,7 @@ namespace Components;
      * @param string $id_
      * @param string $category_
      *
-     * @return \Components\Io_File
+     * @return Components\Io_File
      */
     function find($id_, $category_=null);
 
@@ -60,18 +60,18 @@ namespace Components;
      * @param string $id_
      * @param string $category_
      *
-     * @return \Components\Io_File
+     * @return Components\Io_File
      */
     function findByScheme($scheme_, $id_, $category_=null);
 
     /**
      * Add file.
      *
-     * @param \Components\Io_File $file_
+     * @param Components\Io_File $file_
      * @param string $id_
      * @param string $category_
      *
-     * @return \Components\Io_File
+     * @return Components\Io_File
      */
     function add(Io_File $file_, $id_, $category_=null);
 
@@ -79,11 +79,11 @@ namespace Components;
      * Add file for defined scheme.
      *
      * @param string $scheme_
-     * @param \Components\Io_File $file_
+     * @param Components\Io_File $file_
      * @param string $id_
      * @param string $category_
      *
-     * @return \Components\Io_File
+     * @return Components\Io_File
      */
     function addByScheme($scheme_, Io_File $file_, $id_, $category_=null);
 
@@ -93,7 +93,7 @@ namespace Components;
      * @param string $id_
      * @param string $category_
      *
-     * @return \Components\Io_File
+     * @return Components\Io_File
      */
     function createByScheme($scheme_, $data_, $id_, $category_=null);
 
