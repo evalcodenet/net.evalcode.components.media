@@ -25,7 +25,7 @@ namespace Components;
     // OVERRIDES
     /**
      * (non-PHPdoc)
-     * @see Components.Media_Storage::init()
+     * @see Components\Media_Storage::init()
      */
     public function init(Media_Store $store_)
     {
@@ -34,7 +34,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Media_Storage::uri()
+     * @see Components\Media_Storage::uri()
      */
     public function uri($id_, $category_=null)
     {
@@ -43,7 +43,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Media_Storage::uriByScheme()
+     * @see Components\Media_Storage::uriByScheme()
      */
     public function uriByScheme($scheme_, $id_, $category_=null)
     {
@@ -56,7 +56,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Media_Storage::find()
+     * @see Components\Media_Storage::find()
      */
     public function find($id_, $category_=null)
     {
@@ -65,7 +65,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Media_Storage::findByScheme()
+     * @see Components\Media_Storage::findByScheme()
      */
     public function findByScheme($scheme_, $id_, $category_=null)
     {
@@ -74,7 +74,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Media_Storage::create()
+     * @see Components\Media_Storage::create()
      */
     public function add(Io_File $file_, $id_, $category_=null)
     {
@@ -86,7 +86,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Media_Storage::addByScheme()
+     * @see Components\Media_Storage::addByScheme()
      */
     public function addByScheme($scheme_, Io_File $file_, $id_, $category_=null)
     {
@@ -95,7 +95,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Media_Storage::createByScheme()
+     * @see Components\Media_Storage::createByScheme()
      */
     public function createByScheme($scheme_, $data_, $id_, $category_=null)
     {
@@ -107,7 +107,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Media_Storage::delete()
+     * @see Components\Media_Storage::delete()
      */
     public function remove($id_, $category_=null)
     {
@@ -119,7 +119,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Media_Storage::drop()
+     * @see Components\Media_Storage::drop()
      */
     public function drop($category_)
     {
@@ -131,7 +131,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Media_Storage::copyCategory()
+     * @see Components\Media_Storage::copyCategory()
      */
     public function copyCategory($categorySource_, $categoryTarget_)
     {
@@ -149,7 +149,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Object::hashCode()
+     * @see Components\Object::hashCode()
      */
     public function hashCode()
     {
@@ -158,7 +158,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Object::equals()
+     * @see Components\Object::equals()
      */
     public function equals($object_)
     {
@@ -170,7 +170,7 @@ namespace Components;
 
     /**
      * (non-PHPdoc)
-     * @see Components.Object::__toString()
+     * @see Components\Object::__toString()
      */
     public function __toString()
     {
