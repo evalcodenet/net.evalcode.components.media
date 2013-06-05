@@ -17,25 +17,18 @@ namespace Components;
     // OVERRIDES
     public static function dispatch(Http_Scriptlet_Context $context_, Uri $uri_)
     {
-      if(1>count($_FILES))
-        return;
-
       $params=$uri_->getPathParams();
 
       $storeName=array_shift($params);
       $categoryName=array_shift($params);
 
-      $fileInfo=reset($_FILES);
-      $fileTmp=Io::tmpFile();
-      $fileName=Io::sanitizeFileName($fileInfo['name']);
-
-      move_uploaded_file($fileInfo['tmp_name'], $fileTmp);
+      $file=Io::fileUpload();
 
       $store=Media::store($storeName);
-      $store->add($fileTmp, $fileName, $categoryName);
+      $store->add($file, $file->getName(), $categoryName);
 
       // TODO JSON
-      echo $store->uri($fileName, $categoryName);
+      echo $store->uri($file->getName(), $categoryName);
     }
     //--------------------------------------------------------------------------
   }
