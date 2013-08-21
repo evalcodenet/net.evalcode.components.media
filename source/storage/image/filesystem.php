@@ -50,8 +50,8 @@ namespace Components;
       if(@is_file(Environment::pathResource("{$this->store->path}/{$scheme_}/{$category_}/{$id_}")))
         return "{$this->store->uri}/{$scheme_}/{$category_}/{$id_}";
 
-      // TODO (CSH) Http_Router
-      return sprintf('/components/media/image/%1$s%2$s', String::urlEncodeBase64(serialize(array($this->store->path, $id_, $category_, $scheme_))), substr($id_, strrpos($id_, '.')));
+      // TODO (CSH) Http_Scriptlet_Router
+      return Environment::uriComponents(sprintf('media/image/%1$s%2$s', String::urlEncodeBase64(serialize(array($this->store->path, $id_, $category_, $scheme_))), substr($id_, strrpos($id_, '.'))));
     }
 
     /**
