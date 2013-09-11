@@ -15,9 +15,7 @@ namespace Components;
   class Media_Filter_Image_Scale implements Media_Filter
   {
     // OVERRIDES
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Filter::filter()
+    /**     * @see Components\Media_Filter::filter() Components\Media_Filter::filter()
      */
     public function filter($data_, array $args_=array())
     {
@@ -25,18 +23,14 @@ namespace Components;
       return $data_;
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Object::hashCode()
+    /**     * @see Components\Object::hashCode() Components\Object::hashCode()
      */
     public function hashCode()
     {
       return object_hash($this);
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Object::equals()
+    /**     * @see Components\Object::equals() Components\Object::equals()
      */
     public function equals($object_)
     {
@@ -46,9 +40,7 @@ namespace Components;
       return false;
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Object::__toString()
+    /**     * @see Components\Object::__toString() Components\Object::__toString()
      */
     public function __toString()
     {

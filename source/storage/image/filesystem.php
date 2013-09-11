@@ -23,27 +23,21 @@ namespace Components;
 
 
     // OVERRIDES
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Storage::init()
+    /**     * @see Components\Media_Storage::init() Components\Media_Storage::init()
      */
     public function init(Media_Store $store_)
     {
       $this->store=$store_;
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Storage::uri()
+    /**     * @see Components\Media_Storage::uri() Components\Media_Storage::uri()
      */
     public function uri($id_, $category_=null)
     {
       return "{$this->store->uri}/{$category_}/{$id_}";
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Storage::uriByScheme()
+    /**     * @see Components\Media_Storage::uriByScheme() Components\Media_Storage::uriByScheme()
      */
     public function uriByScheme($scheme_, $id_, $category_=null)
     {
@@ -54,27 +48,21 @@ namespace Components;
       return Environment::uriComponents(sprintf('media/image/%1$s%2$s', String::urlEncodeBase64(serialize(array($this->store->path, $id_, $category_, $scheme_))), substr($id_, strrpos($id_, '.'))));
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Storage::find()
+    /**     * @see Components\Media_Storage::find() Components\Media_Storage::find()
      */
     public function find($id_, $category_=null)
     {
       return Io::file(Environment::pathResource("{$this->store->path}/{$category_}/{$id_}"));
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Storage::findByScheme()
+    /**     * @see Components\Media_Storage::findByScheme() Components\Media_Storage::findByScheme()
      */
     public function findByScheme($scheme_, $id_, $category_=null)
     {
       return Io::file(Environment::pathResource("{$this->store->path}/{$scheme_}/{$category_}/{$id_}"), Io_File::WRITE|Io_File::CREATE);
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Storage::create()
+    /**     * @see Components\Media_Storage::create() Components\Media_Storage::create()
      */
     public function add(Io_File $file_, $id_, $category_=null)
     {
@@ -84,18 +72,14 @@ namespace Components;
       return $file_->copy(Io::file(Environment::pathResource("{$this->store->path}/{$category_}/{$id_}")), true);
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Storage::addByScheme()
+    /**     * @see Components\Media_Storage::addByScheme() Components\Media_Storage::addByScheme()
      */
     public function addByScheme($scheme_, Io_File $file_, $id_, $category_=null)
     {
       return $file_->copy(Io::file(Environment::pathResource("{$this->store->path}/{$scheme_}/{$category_}/{$id_}")), true);
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Storage::createByScheme()
+    /**     * @see Components\Media_Storage::createByScheme() Components\Media_Storage::createByScheme()
      */
     public function createByScheme($scheme_, $data_, $id_, $category_=null)
     {
@@ -105,9 +89,7 @@ namespace Components;
       return $file;
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Storage::delete()
+    /**     * @see Components\Media_Storage::delete() Components\Media_Storage::delete()
      */
     public function remove($id_, $category_=null)
     {
@@ -117,9 +99,7 @@ namespace Components;
         $file->delete();
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Storage::drop()
+    /**     * @see Components\Media_Storage::drop() Components\Media_Storage::drop()
      */
     public function drop($category_)
     {
@@ -129,9 +109,7 @@ namespace Components;
         $path->delete(true);
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Media_Storage::copyCategory()
+    /**     * @see Components\Media_Storage::copyCategory() Components\Media_Storage::copyCategory()
      */
     public function copyCategory($categorySource_, $categoryTarget_)
     {
@@ -147,18 +125,14 @@ namespace Components;
       return true;
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Object::hashCode()
+    /**     * @see Components\Object::hashCode() Components\Object::hashCode()
      */
     public function hashCode()
     {
       return object_hash($this);
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Object::equals()
+    /**     * @see Components\Object::equals() Components\Object::equals()
      */
     public function equals($object_)
     {
@@ -168,9 +142,7 @@ namespace Components;
       return false;
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Object::__toString()
+    /**     * @see Components\Object::__toString() Components\Object::__toString()
      */
     public function __toString()
     {

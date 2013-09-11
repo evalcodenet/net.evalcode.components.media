@@ -225,18 +225,14 @@ namespace Components;
       $this->load();
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Object::hashCode()
+    /**     * @see Components\Object::hashCode() Components\Object::hashCode()
      */
     public function hashCode()
     {
       return string_hash($this->path);
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Object::equals()
+    /**     * @see Components\Object::equals() Components\Object::equals()
      */
     public function equals($object_)
     {
@@ -246,9 +242,7 @@ namespace Components;
       return false;
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see Components\Object::__toString()
+    /**     * @see Components\Object::__toString() Components\Object::__toString()
      */
     public function __toString()
     {
