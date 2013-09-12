@@ -7,10 +7,11 @@ namespace Components;
   /**
    * Media_Filter
    *
-   * @package net.evalcode.components
-   * @subpackage media
+   * @package net.evalcode.components.media
    *
    * @author evalcode.net
+   *
+   * @api
    */
   interface Media_Filter extends Object
   {

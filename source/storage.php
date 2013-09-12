@@ -7,10 +7,11 @@ namespace Components;
   /**
    * Media_Storage
    *
-   * @package net.evalcode.components
-   * @subpackage media
+   * @package net.evalcode.components.media
    *
    * @author evalcode.net
+   *
+   * @api
    */
   interface Media_Storage extends Object
   {
@@ -21,7 +22,6 @@ namespace Components;
      * @param \Components\Media_Store $store_
      */
     function init(Media_Store $store_);
-
     /**
      * Resolve uri to original file.
      *
@@ -31,7 +31,6 @@ namespace Components;
      * @return string
      */
     function uri($id_, $category_=null);
-
     /**
      * Resolve uri to file for defined scheme.
      *
@@ -42,7 +41,6 @@ namespace Components;
      * @return string
      */
     function uriByScheme($scheme_, $id_, $category_=null);
-
     /**
      * Resolve original file.
      *
@@ -52,7 +50,6 @@ namespace Components;
      * @return \Components\Io_File
      */
     function find($id_, $category_=null);
-
     /**
      * Resolve file for defined scheme.
      *
@@ -63,7 +60,6 @@ namespace Components;
      * @return \Components\Io_File
      */
     function findByScheme($scheme_, $id_, $category_=null);
-
     /**
      * Add file.
      *
@@ -74,7 +70,6 @@ namespace Components;
      * @return \Components\Io_File
      */
     function add(Io_File $file_, $id_, $category_=null);
-
     /**
      * Add file for defined scheme.
      *
@@ -86,7 +81,6 @@ namespace Components;
      * @return \Components\Io_File
      */
     function addByScheme($scheme_, Io_File $file_, $id_, $category_=null);
-
     /**
      * @param string $scheme_
      * @param string $data_
@@ -96,7 +90,6 @@ namespace Components;
      * @return \Components\Io_File
      */
     function createByScheme($scheme_, $data_, $id_, $category_=null);
-
     /**
      * Remove file.
      *
@@ -106,14 +99,12 @@ namespace Components;
      * @return boolean
      */
     function remove($id_, $category_=null);
-
     /**
      * Remove category.
      *
      * @param string $category_
      */
     function drop($category_);
-
     /**
      * @param string $categorySource_
      * @param string $categoryTarget_

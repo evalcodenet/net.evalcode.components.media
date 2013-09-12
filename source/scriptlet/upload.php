@@ -7,8 +7,8 @@ namespace Components;
   /**
    * Media_Scriptlet_Upload
    *
-   * @package net.evalcode.components
-   * @subpackage media.scriptlet
+   * @package net.evalcode.components.media
+   * @subpackage scriptlet
    *
    * @author evalcode.net
    */

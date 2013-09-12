@@ -7,12 +7,11 @@ namespace Components;
   /**
    * Media_Store
    *
-   * @package net.evalcode.components
-   * @subpackage media
+   * @package net.evalcode.components.media
    *
    * @author evalcode.net
    *
-   * TODO Use Io_File, Io_Image ..
+   * @api
    */
   class Media_Store implements Object /* TODO (CSH) Serializable_Php, Serializable_Json */
   {
@@ -63,7 +62,7 @@ namespace Components;
     /**
      * @param string $path_
      * @param string $storage_
-     * @param array|string $schema_
+     * @param string[] $schema_
      *
      * @return \Components\Media_Store
      */
@@ -176,7 +175,7 @@ namespace Components;
     }
 
     /**
-     * @return array|Components\Media_Filter
+     * @return \Components\Media_Filter[]
      */
     public function getSchema()
     {
@@ -225,14 +224,16 @@ namespace Components;
       $this->load();
     }
 
-    /**     * @see Components\Object::hashCode() Components\Object::hashCode()
+    /**
+     * @see \Components\Object::hashCode() \Components\Object::hashCode()
      */
     public function hashCode()
     {
       return string_hash($this->path);
     }
 
-    /**     * @see Components\Object::equals() Components\Object::equals()
+    /**
+     * @see \Components\Object::equals() \Components\Object::equals()
      */
     public function equals($object_)
     {
@@ -242,7 +243,8 @@ namespace Components;
       return false;
     }
 
-    /**     * @see Components\Object::__toString() Components\Object::__toString()
+    /**
+     * @see \Components\Object::__toString() \Components\Object::__toString()
      */
     public function __toString()
     {
@@ -257,15 +259,15 @@ namespace Components;
 
     // IMPLEMENTATION
     /**
-     * @var Media_Storage
+     * @var \Components\Media_Storage
      */
     private $m_storage;
     /**
-     * @var array|Media_Filter
+     * @var \Components\Media_Filter[]
      */
     private $m_schema=array();
     /**
-     * @var array|string
+     * @var string[]
      */
     private $m_manifest=array();
     //-----

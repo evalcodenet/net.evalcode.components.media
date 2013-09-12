@@ -7,10 +7,11 @@ namespace Components;
   /**
    * Media
    *
-   * @package net.evalcode.components
-   * @subpackage media
+   * @package net.evalcode.components.media
    *
    * @author evalcode.net
+   *
+   * @api
    */
   class Media
   {
