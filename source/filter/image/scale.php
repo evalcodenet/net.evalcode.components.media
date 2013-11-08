@@ -18,7 +18,7 @@ namespace Components;
     /**
      * @see \Components\Media_Filter::filter() \Components\Media_Filter::filter()
      */
-    public function filter($data_, array $args_=array())
+    public function filter($data_, array $args_=[])
     {
       // TODO Implement ...
       return $data_;

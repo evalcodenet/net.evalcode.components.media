@@ -22,7 +22,7 @@ namespace Components;
      *
      * @return string
      */
-    function filter($data_, array $args_=array());
+    function filter($data_, array $args_=[]);
     //--------------------------------------------------------------------------
   }
 ?>

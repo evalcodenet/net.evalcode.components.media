@@ -206,7 +206,7 @@ namespace Components;
 
 
     // OVERRIDES
-    public function __call($name_, array $args_=array())
+    public function __call($name_, array $args_=[])
     {
       if(false===isset($this->m_schema[$name_]))
         return null;
@@ -265,11 +265,11 @@ namespace Components;
     /**
      * @var \Components\Media_Filter[]
      */
-    private $m_schema=array();
+    private $m_schema=[];
     /**
      * @var string[]
      */
-    private $m_manifest=array();
+    private $m_manifest=[];
     //-----
 
 

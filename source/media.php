@@ -56,7 +56,7 @@ namespace Components;
 
 
     // IMPLEMENTATION
-    private static $m_cacheStores=array();
+    private static $m_cacheStores=[];
     //--------------------------------------------------------------------------
   }
 ?>
