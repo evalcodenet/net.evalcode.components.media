@@ -71,10 +71,10 @@ namespace Components;
       $instance=new self($path_);
       $instance->initialize();
 
-      @file_put_contents($instance->path.'/'.self::NAME_MANIFEST, json_encode(array(
+      @file_put_contents($instance->path.'/'.self::NAME_MANIFEST, json_encode([
         'storage'=>$storage_,
         'schema'=>$schema_
-      )));
+      ]));
 
       $instance->load();
 
@@ -216,7 +216,7 @@ namespace Components;
 
     public function __sleep()
     {
-      return array('path', 'm_manifest');
+      return ['path', 'm_manifest'];
     }
 
     public function __wakeup()

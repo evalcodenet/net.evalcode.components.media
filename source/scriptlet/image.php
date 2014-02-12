@@ -15,6 +15,10 @@ namespace Components;
   class Media_Scriptlet_Image extends Http_Scriptlet
   {
     // OVERRIDES
+    /**
+     * @param \Components\Http_Scriptlet_Context $context_
+     * @param \Components\Uri $uri_
+     */
     public static function dispatch(Http_Scriptlet_Context $context_, Uri $uri_)
     {
       $params=$uri_->getPathParams();
