@@ -39,12 +39,12 @@ namespace Components;
         $info=@json_decode(String::fromBase64Url($name));
 
         if(false===isset($info[0]))
-          throw Http_Exception::notFound('media/scriptlet/engine', sprintf('Not found [%s].', $uri));
+          throw new Http_Exception('media/scriptlet/engine', sprintf('Not found [%s].', $uri), Http_Exception::NOT_FOUND);
 
         $pathSource=Environment::pathApplication().$info[0];
 
         if(false===is_file($pathSource))
-          throw Http_Exception::notFound('media/scriptlet/engine', sprintf('Not found [%s].', $uri));
+          throw new Http_Exception('media/scriptlet/engine', sprintf('Not found [%s].', $uri), Http_Exception::NOT_FOUND);
 
         if(isset($info[1]) && isset($info[2]))
         {
