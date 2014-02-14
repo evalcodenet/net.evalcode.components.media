@@ -46,8 +46,13 @@ namespace Components;
         if(false===is_file($pathSource))
           throw new Http_Exception('media/scriptlet/engine', sprintf('Not found [%s].', $uri), Http_Exception::NOT_FOUND);
 
-        if(isset($info[1]) && isset($info[2]))
+        if(isset($info[1]) || isset($info[2]))
         {
+          if(!isset($info[1]))
+            $info[1]=0;
+          if(!isset($info[2]))
+            $info[2]=0;
+
           Io::image($pathSource)
             ->scale(Point::of($info[1], $info[2]))
             ->saveAs($fileTarget);
