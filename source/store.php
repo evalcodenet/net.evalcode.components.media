@@ -281,7 +281,7 @@ namespace Components;
       {
         if(false===@mkdir($path, 0755, true))
         {
-          throw new Runtime_Exception('media/store', sprintf(
+          throw new Runtime_Exception_Internal('media/store', sprintf(
             'Unable to initialize media store for given path [path: %1$s].', $path
           ));
         }
@@ -291,7 +291,7 @@ namespace Components;
 
       if(false===@is_writable($path))
       {
-        throw new Runtime_Exception('media/store', sprintf(
+        throw new Runtime_Exception_Internal('media/store', sprintf(
           'Unable to initialize media store at given location due to lack of permissions [path: %1$s].', $path
         ));
       }
@@ -303,7 +303,7 @@ namespace Components;
 
       if(false===@is_file($manifest=($path.'/'.self::NAME_MANIFEST)))
       {
-        throw new Runtime_Exception('media/store', sprintf(
+        throw new Runtime_Exception_Internal('media/store', sprintf(
           'Unable to resolve media store manifest [path: %1$s, manifest: %2$s].', $path, self::NAME_MANIFEST
         ));
       }
