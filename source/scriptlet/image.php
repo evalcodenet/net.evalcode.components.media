@@ -24,7 +24,7 @@ namespace Components;
       $params=$uri_->getPathParams();
       $base64=end($params);
 
-      $info=unserialize(String::urlDecodeBase64($base64));
+      $info=unserialize(\str\decodeBase64Url($base64));
 
       $path=array_shift($info);
       $id=array_shift($info);

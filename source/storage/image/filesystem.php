@@ -48,7 +48,7 @@ namespace Components;
         return "{$this->store->uri}/{$scheme_}/{$category_}/{$id_}";
 
       // TODO (CSH) Http_Scriptlet_Router
-      return Environment::uriComponents(sprintf('media/image/%1$s%2$s', String::urlEncodeBase64(serialize(array($this->store->path, $id_, $category_, $scheme_))), substr($id_, strrpos($id_, '.'))));
+      return Environment::uriComponents(sprintf('media/image/%1$s%2$s', \str\encodeBase64Url(serialize(array($this->store->path, $id_, $category_, $scheme_))), substr($id_, strrpos($id_, '.'))));
     }
 
     /**
@@ -141,7 +141,7 @@ namespace Components;
      */
     public function hashCode()
     {
-      return object_hash($this);
+      return \math\hasho($this);
     }
 
     /**

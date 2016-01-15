@@ -229,7 +229,7 @@ namespace Components;
      */
     public function hashCode()
     {
-      return string_hash($this->path);
+      return \math\hashs($this->path);
     }
 
     /**

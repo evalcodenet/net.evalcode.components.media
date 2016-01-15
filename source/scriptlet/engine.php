@@ -26,7 +26,7 @@ namespace Components;
       $name=$uri->getFilename(true);
 
       $uri_->popPathParam();
-      $pathTarget=Environment::pathApplication().$uri_->getPath().'/'.String::urlDecode($name).".$extension";
+      $pathTarget=Environment::pathWeb().$uri_->getPath().'/'.\str\decodeUrl($name, true).".$extension";
 
       if(false===is_file($pathTarget))
       {
@@ -36,12 +36,12 @@ namespace Components;
         if(false===$directoryTarget->exists())
           $directoryTarget->create();
 
-        $info=@json_decode(String::fromBase64Url($name));
+        $info=@json_decode(\str\decodeBase64Url($name));
 
         if(false===isset($info[0]))
           throw new Http_Exception('media/scriptlet/engine', sprintf('Not found [%s].', $uri), Http_Exception::NOT_FOUND);
 
-        $pathSource=Environment::pathApplication().$info[0];
+        $pathSource=Environment::pathWeb($info[0]);
 
         if(false===is_file($pathSource))
           throw new Http_Exception('media/scriptlet/engine', sprintf('Not found [%s].', $uri), Http_Exception::NOT_FOUND);
@@ -68,18 +68,18 @@ namespace Components;
     }
 
     /**
-     * @param \Components\Uri $target_
      * @param string $path_
      * @param integer $width_
      * @param integer $height_
      *
      * @return \Components\Uri
      */
-    public static function imageUri(Uri $target_, Io_Path $path_, $width_=null, $height_=null)
+    public static function imageUri($route_, Io_Path $path_, $width_=null, $height_=null)
     {
-      $target_->pushPathParam(
-        String::toBase64Url(json_encode([
-          (string)Io::path(Environment::pathApplication())->getRelativePath($path_),
+      $uri=Uri::valueOf(Http_Router::uri($route_));
+      $uri->pushPathParam(
+        \str\encodeBase64Url(json_encode([
+          (string)Io::path(Environment::pathWeb())->getRelativePath($path_),
           $width_,
           $height_
         ])).
@@ -87,7 +87,7 @@ namespace Components;
         Io::fileExtension($path_)
       );
 
-      return $target_;
+      return $uri;
     }
 
     /**
@@ -95,17 +95,19 @@ namespace Components;
      * @param integer $width_
      * @param integer $height_
      *
-     * @return \Components\Uri
+     * @return string
      */
-    public static function imageName(Io_Path $path_, $width_=null, $height_=null)
+    public static function imagePath($route_, Io_Path $path_, $width_=null, $height_=null)
     {
-      return String::toBase64Url(json_encode([
-          (string)Io::path(Environment::pathApplication())->getRelativePath($path_),
+      $file=\str\encodeBase64Url(json_encode([
+          (string)Io::path(Environment::pathWeb())->getRelativePath($path_),
           $width_,
           $height_
         ])).
-      '.'.
-      Io::fileExtension($path_);
+        '.'.
+        Io::fileExtension($path_);
+
+      return Http_Router::path($route_)."/$file";
     }
     //--------------------------------------------------------------------------
   }
